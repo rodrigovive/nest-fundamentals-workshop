@@ -28,14 +28,14 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param() params) {
-    return this.coffeesService.findOne(params.id);
+  findOne(@Param('id') id: string) {
+    return this.coffeesService.findOne(id);
     //   return `This action return ${params.id}`;
   }
 
   // others field wont be validated
   @Post()
-  @HttpCode(HttpStatus.ACCEPTED)
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     return this.coffeesService.create(createCoffeeDto);
   }
