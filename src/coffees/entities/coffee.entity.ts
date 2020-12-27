@@ -20,6 +20,6 @@ export class Coffee {
 
   // @Column('json', { nullable: true })
   @JoinTable() // specified table
-  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees)
-  flavors: string[];
+  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees, { cascade: true }) // insert
+  flavors: Flavor[];
 }
